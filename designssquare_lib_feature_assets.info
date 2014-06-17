@@ -1,0 +1,8 @@
+name = DesignsSquare.com Library: Feature Assets
+description = exporting assets referenced by strongarm variables via features
+core = 7.x
+version = 7.x-0.1-dev
+project = designssquare_lib_feature_assets
+package = DesignsSquare.com.utilities
+
+dependencies[] = designssquare_lib

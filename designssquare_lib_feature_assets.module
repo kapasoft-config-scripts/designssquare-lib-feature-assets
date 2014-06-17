@@ -1,0 +1,11 @@
+<?php
+function designssquare_lib_feature_assets_features_api() {
+    return array(
+        'variable_assets' => array(
+            'name' => 'Variable Assets',
+            'file' => drupal_get_path('module', 'designssquare_lib_feature_assets') .'/designssquare_lib_features_assets.features.inc',
+            'default_hook' => 'variable_assets_features_default_settings',
+            'feature_source' => TRUE,
+        ),
+    );
+}
