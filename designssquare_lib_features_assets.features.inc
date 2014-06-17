@@ -97,9 +97,16 @@ function variable_assets_features_export_render($module_name, $data, $export = N
         //export asset
         export_asset((array)$file, $module_name);
 
-        //export feature
-        $usage_list = file_usage_list($file);
-        $usage = array_shift($usage_list);
+        if($file){
+            //export feature
+            $usage_list = ($file) ? file_usage_list($file) : '';
+            $usage = array_shift($usage_list);
+        }else{
+            $file = '';
+            watchdog('designssquare_lib_features_assets',"It wasn't able to load file with FID:".$fid);
+        }
+
+
         $item = array(
             array_keys($usage)[0]  => $file
         );
