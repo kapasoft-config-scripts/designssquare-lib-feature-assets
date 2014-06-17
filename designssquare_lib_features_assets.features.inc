@@ -94,22 +94,19 @@ function variable_assets_features_export_render($module_name, $data, $export = N
 
     foreach ($data as $fid) {
         $file = file_load($fid);
-        //export asset
-        export_asset((array)$file, $module_name);
-
+       
         if($file){
+            //export asset
+            export_asset((array)$file, $module_name);
+
             //export feature
             $usage_list = ($file) ? file_usage_list($file) : '';
             $usage = array_shift($usage_list);
-        }else{
-            $file = '';
-            watchdog('designssquare_lib_features_assets',"It wasn't able to load file with FID:".$fid);
+
+            $item = array(
+                array_keys($usage)[0]  => $file
+            );
         }
-
-
-        $item = array(
-            array_keys($usage)[0]  => $file
-        );
 
         //add the contest code to the feature
          if (isset($item)) {
